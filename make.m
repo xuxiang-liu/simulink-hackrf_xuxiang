@@ -62,6 +62,9 @@ options = [options; varargin'; { ...
 %% Copy hackrf.h into src
 copyfile('deps/include/Project/hackrf.h', 'src')
 
+%% Copy new libhackrf.lib into 
+copyfile('libhackrf/libhackrf.lib', 'deps/bin')
+
 %% Compile
 if isunix && ~any(ismember(varargin, '-v'))
     warning('off', 'MATLAB:mex:GccVersion_link');
