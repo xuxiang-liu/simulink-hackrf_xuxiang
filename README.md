@@ -1,4 +1,4 @@
-Simulink-HackRF
+Simulink-HackRF_xuxiang
 ================
 This forked Project supports higher Matlab Version (>R2016a). The rest is the same as the original project. https://github.com/kit-cel/simulink-hackrf
 
@@ -17,7 +17,7 @@ To double-check, open a MATLAB console:
 		MEX configured to use 'MinGW64 Compiler (C)' for C language compilation.
 		...
 
-2. Get the Simulink-HackRF source from [GitHub](https://github.com/xuxiang-liu/simulink-hackrf_xuxiang). 
+2. Get the Simulink-HackRF_xuxiang source from https://github.com/xuxiang-liu/simulink-hackrf_xuxiang. 
 
 3. Extract the archive and create a subdirectory *deps* in there.
 
