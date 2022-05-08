@@ -1,0 +1,102 @@
+Microsoft (R) COFF/PE Dumper Version 14.29.30143.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file libhackrf.dll
+
+File Type: DLL
+
+  Section contains the following exports for libhackrf.dll
+
+    00000000 characteristics
+    6252DA39 time date stamp Sun Apr 10 21:23:05 2022
+        0.00 version
+           1 ordinal base
+          64 number of functions
+          64 number of names
+
+    ordinal hint RVA      name
+
+          1    0 000040BB hackrf_board_id_name
+          2    1 00002FBE hackrf_board_id_read
+          3    2 0000357A hackrf_board_partid_serialno_read
+          4    3 00003E71 hackrf_close
+          5    4 0000420E hackrf_compute_baseband_filter_bw
+          6    5 000041BB hackrf_compute_baseband_filter_bw_round_down_lt
+          7    6 00002F0F hackrf_cpld_write
+          8    7 00001B94 hackrf_device_list
+          9    8 00001E1A hackrf_device_list_free
+         10    9 000024A0 hackrf_device_list_open
+         11    A 00003F73 hackrf_error_name
+         12    B 00001B2E hackrf_exit
+         13    C 0000417C hackrf_filter_path_name
+         14    D 000029AE hackrf_get_m0_state
+         15    E 000044EC hackrf_get_operacake_boards
+         16    F 00004642 hackrf_get_operacake_mode
+         17   10 00001AE3 hackrf_init
+         18   11 0000430A hackrf_init_sweep
+         19   12 00003C56 hackrf_is_streaming
+         20   13 00001B87 hackrf_library_release
+         21   14 00001B7A hackrf_library_version
+         22   15 000025C6 hackrf_max2837_read
+         23   16 0000264D hackrf_max2837_write
+         24   17 0000237B hackrf_open
+         25   18 0000243C hackrf_open_by_serial
+         26   19 00004D07 hackrf_operacake_gpio_test
+         27   1A 00004811 hackrf_reset
+         28   1B 0000289C hackrf_rffc5071_read
+         29   1C 00002923 hackrf_rffc5071_write
+         30   1D 00003503 hackrf_set_amp_enable
+         31   1E 000037D6 hackrf_set_antenna_enable
+         32   1F 00002820 hackrf_set_baseband_filter_bandwidth
+         33   20 00004C69 hackrf_set_clkout_enable
+         34   21 00003120 hackrf_set_freq
+         35   22 000031D9 hackrf_set_freq_explicit
+         36   23 0000426C hackrf_set_hw_sync_mode
+         37   24 00003648 hackrf_set_lna_gain
+         38   25 00004B28 hackrf_set_operacake_dwell_times
+         39   26 0000494E hackrf_set_operacake_freq_ranges
+         40   27 00004588 hackrf_set_operacake_mode
+         41   28 0000470A hackrf_set_operacake_ports
+         42   29 000048A9 hackrf_set_operacake_ranges
+         43   2A 00002B91 hackrf_set_rx_overrun_limit
+         44   2B 000033D6 hackrf_set_sample_rate
+         45   2C 000032CA hackrf_set_sample_rate_manual
+         46   2D 00002AEE hackrf_set_tx_underrun_limit
+         47   2E 00003754 hackrf_set_txvga_gain
+         48   2F 00004DBF hackrf_set_ui_enable
+         49   30 000036CE hackrf_set_vga_gain
+         50   31 000026E7 hackrf_si5351c_read
+         51   32 00002783 hackrf_si5351c_write
+         52   33 00002E77 hackrf_spiflash_clear_status
+         53   34 00002C34 hackrf_spiflash_erase
+         54   35 00002D40 hackrf_spiflash_read
+         55   36 00002DDB hackrf_spiflash_status
+         56   37 00002CA5 hackrf_spiflash_write
+         57   38 00003CB3 hackrf_start_rx
+         58   39 00004E5D hackrf_start_rx_sweep
+         59   3A 00003D92 hackrf_start_tx
+         60   3B 00003D55 hackrf_stop_rx
+         61   3C 00003E34 hackrf_stop_tx
+         62   3D 000030BE hackrf_usb_api_version_read
+         63   3E 0000411E hackrf_usb_board_id_name
+         64   3F 00003033 hackrf_version_string_read
+
+  Summary
+
+        1000 .CRT
+        8000 .bss
+        1000 .data
+        1000 .debug_abbrev
+        1000 .debug_aranges
+        1000 .debug_frame
+        2000 .debug_info
+        1000 .debug_line
+        1000 .edata
+        2000 .idata
+        2000 .pdata
+        7000 .rdata
+        1000 .reloc
+       19000 .text
+        1000 .tls
+        2000 .xdata
