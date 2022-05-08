@@ -1,3 +1,5 @@
+% Changed by Xuxiang to support higher MATLAB version
+% 2022.05.08
 %
 % Copyright 2015 Communications Engineering Lab, KIT
 %
@@ -32,7 +34,7 @@ if ispc
         
     options = { ...
         ['-I' pwd]; ['-I' HACKRF_INC_DIR]; ...
-        ['-L' HACKRF_LIB_DIR]; '-lhackrf' ...
+        ['-L' HACKRF_LIB_DIR]; '-llibhackrf' ...
     };
 
 elseif isunix
@@ -40,7 +42,7 @@ elseif isunix
     HACKRF_INC_DIR = '/usr/include/libhackrf';
     
     options = { ...
-        ['-I' HACKRF_INC_DIR]; ['-l' 'hackrf'] ...
+        ['-I' HACKRF_INC_DIR]; ['-l' 'libhackrf'] ...
     };
 
 else
@@ -56,6 +58,9 @@ options = [options; varargin'; { ...
     ['-DSIMULINK_HACKRF_VERSION=' VERSION]; ...
     '-outdir'; BIN_DIR; ...
 }];
+
+%% Copy hackrf.h into src
+copyfile('deps/include/Project/hackrf.h', 'src')
 
 %% Compile
 if isunix && ~any(ismember(varargin, '-v'))
@@ -77,5 +82,6 @@ warning('on', 'MATLAB:mex:GccVersion_link');
 copyfile('src/hackrf_find_devices.m', BIN_DIR)
 copyfile('blockset/hackrf_library.slx', BIN_DIR)
 copyfile('blockset/slblocks.m', BIN_DIR)
+copyfile('deps/bin/libhackrf.dll', BIN_DIR)
 
 fprintf('\n--> Add "%s" to your MATLAB Path.\n', BIN_DIR);
