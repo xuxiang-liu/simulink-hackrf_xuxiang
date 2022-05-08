@@ -4,6 +4,37 @@ This forked Project supports higher Matlab Version (>R2016a). The rest is the sa
 
 More features will be added in the future
 
+Updated Build instructions for Microsoft Windows
+----------------------------------------
+
+Refer to my blog for more information: https://xuxiang-liu.github.io/2022/04/25/InstallHackrtWinEN.html
+
+1. Install a compiler and setup MATLAB's ```mex``` compile script: Here, we will use MinGW64 which is support since MATLAB 2015b. To set it up follow the (instructions on the Mathworks page)[http://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html]. Next, add the MinGW64 bin directory to your PATH (default is C:\TDM-GCC-64\bin)
+To double-check, open a MATLAB console:
+
+		>> mex -setup C
+		MEX configured to use 'MinGW64 Compiler (C)' for C language compilation.
+		...
+
+2. Get the Simulink-HackRF source from [GitHub](https://github.com/kit-cel/simulink-hackrf). If you aren't using *git*, you can download a [compressed file](https://github.com/kit-cel/simulink-hackrf/archive/master.zip) from GitHub directly. Extract the archive and create a subdirectory *deps* in there.
+
+3. Build the *hackrf* library (based on (libhackrf README)[http://github.com/mossmann/hackrf/tree/master/host/libhackrf]):
+
+    - First, get the hackrf source code by cloning the repo or download it as an archive and extract. Next, you need to install (CMake)[http://cmake.org/] as well as windows binaries for (libusb)[http://libusb.info/].
+
+    - Start the CMake-GUI and set the source directory to your libhackrf sources, that is subdirectory 'host/libhackrf' in the repo. Create a directory 'build' in there and set it as the binaries directory in the CMake-GUI. Next, hit Configure and select 'MinGW Makefiles' as generator. Set the CMAKE_INSTALL_PREFIX to the 'deps' directory you created above. You will probably have to set the the include and lib settings for libusb manually: LIBUSB_INCLUDE_DIR must be set to the libusb directory, subfolder 'include/libusb-1.0'. LIBUSB_LIBRARIES can point to the static library shipped with the libusb binaries, 'MinGW64/static/libusb-1.0.a'. Finally, press Generate.
+
+    - Open the *MinGW Command Prompt*, navigate to the 'libhackrf/build' directory and run ```mingw32-make``` to build the hackrf library. Next, run ```mingw32-make install```.
+
+4. Get (Zadig)[http://zadig.akeo.ie/], plug-in your device and run Zadig and install the driver.
+
+5. Run MATLAB, switch to your Simulink-HackRF directory and start the build process via
+
+			>> make
+
+6. After a refresh, you will find a new Toolbox named "HackRF" in the *Simulink Library Browser*. A simple spectrum scope model and a single-tone transmitter model is located in the directory *demos*. Also, there is MATLAB command ```>> hackrf_find_devices``` which you can use to test your setup.
+
+
 Copyright
 ---------
 
