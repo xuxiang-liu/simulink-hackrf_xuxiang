@@ -9,16 +9,19 @@ Updated Build instructions for Microsoft Windows
 
 Refer to my blog for more information: https://xuxiang-liu.github.io/2022/04/25/InstallHackrtWinEN.html
 
-1. Install a compiler and setup MATLAB's ```mex``` compile script: Here, we will use MinGW64 which is support since MATLAB 2015b. To set it up follow the (instructions on the Mathworks page)[http://de.mathworks.com/help/matlab/matlab_external/install-mingw-support-package.html]. Next, add the MinGW64 bin directory to your PATH (default is C:\TDM-GCC-64\bin)
+1. Install Mingw64 for Matlab
+
 To double-check, open a MATLAB console:
 
 		>> mex -setup C
 		MEX configured to use 'MinGW64 Compiler (C)' for C language compilation.
 		...
 
-2. Get the Simulink-HackRF source from [GitHub](https://github.com/kit-cel/simulink-hackrf). If you aren't using *git*, you can download a [compressed file](https://github.com/kit-cel/simulink-hackrf/archive/master.zip) from GitHub directly. Extract the archive and create a subdirectory *deps* in there.
+2. Get the Simulink-HackRF source from [GitHub](https://github.com/xuxiang-liu/simulink-hackrf_xuxiang). 
 
-3. Build the *hackrf* library (based on (libhackrf README)[http://github.com/mossmann/hackrf/tree/master/host/libhackrf]):
+3. Extract the archive and create a subdirectory *deps* in there.
+
+4. Build the *hackrf* library (based on (libhackrf README)[http://github.com/mossmann/hackrf/tree/master/host/libhackrf]):
 
     - First, get the hackrf source code by cloning the repo or download it as an archive and extract. Next, you need to install (CMake)[http://cmake.org/] as well as windows binaries for (libusb)[http://libusb.info/].
 
@@ -26,13 +29,13 @@ To double-check, open a MATLAB console:
 
     - Open the *MinGW Command Prompt*, navigate to the 'libhackrf/build' directory and run ```mingw32-make``` to build the hackrf library. Next, run ```mingw32-make install```.
 
-4. Get (Zadig)[http://zadig.akeo.ie/], plug-in your device and run Zadig and install the driver.
+5. Get (Zadig)[http://zadig.akeo.ie/], plug-in your device and run Zadig and install the driver.
 
-5. Run MATLAB, switch to your Simulink-HackRF directory and start the build process via
+6. Run MATLAB, switch to your Simulink-HackRF directory and start the build process via
 
 			>> make
 
-6. After a refresh, you will find a new Toolbox named "HackRF" in the *Simulink Library Browser*. A simple spectrum scope model and a single-tone transmitter model is located in the directory *demos*. Also, there is MATLAB command ```>> hackrf_find_devices``` which you can use to test your setup.
+7. After a refresh, you will find a new Toolbox named "HackRF" in the *Simulink Library Browser*. A simple spectrum scope model and a single-tone transmitter model is located in the directory *demos*. Also, there is MATLAB command ```>> hackrf_find_devices``` which you can use to test your setup.
 
 
 Copyright
